@@ -1,5 +1,4 @@
 # aa
-
 front:angular,bootstrap,easyu,
 
 ## step
@@ -66,7 +65,6 @@ typescript                   3.2.4
     path: add D:\ProgramData\Anaconda3;D:\ProgramData\Anaconda3\Scripts;
     ## linux
     https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
-
     # env
     ## linux
     conda create --name python36 python=3.6
@@ -132,4 +130,7 @@ typescript                   3.2.4
     # commit local firstly
     git add .
     git commit -m "save local to unrelated-histories merge"
-    # merge
+    # pull and *compare and fix conflicts* to merge
+    git pull --allow-unrelated-histories
+    # push
+    
