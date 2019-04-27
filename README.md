@@ -101,11 +101,14 @@ typescript                   3.2.4
 
     # package manage
     # package-lock.json found ==> rm it and use `yarn` instand of `npm`
+
     ## create
     ng new aa
+
     ## css
     yarn add bootstrap
     add `"node_modules/bootstrap/dist/css/bootstrap.min.css"` to `angular.json.styles`
+
     ## js
     ### https://github.com/ng-bootstrap/ng-bootstrap
     yarn add @ng-bootstrap/ng-bootstrap
@@ -115,5 +118,18 @@ typescript                   3.2.4
     ## icon
 
     ## start dev
+    ## goto http://127.0.0.1:4200/
     ng serve
-    # goto http://127.0.0.1:4200/
+
+    ## push
+    git remote -v
+    git remote add  origin git@github.com:chainly/aa.git
+    # There is no tracking information for the current branch.
+    git branch --set-upstream-to=origin/master master
+    # fatal: refusing to merge unrelated histories
+    git pull --ff-only --allow-unrelated-histories
+    # fatal: Not possible to fast-forward, aborting.
+    # commit local firstly
+    git add .
+    git commit -m "save local to unrelated-histories merge"
+    # merge
