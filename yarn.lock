@@ -285,6 +285,13 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@ng-bootstrap/ng-bootstrap@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-4.1.1.tgz#5e9c477ed9cc19114b56a0abc87e9c8483fb6bbf"
+  integrity sha512-OgbmPVhbDdNpIwogEXsycUJG0caNtb2+wCABfLUClgi9YcfNXhZ9Phu2GQq7Pk/LO66okth6s77RBQnbTJuysg==
+  dependencies:
+    tslib "^1.9.0"
+
 "@ngtools/webpack@7.3.8":
   version "7.3.8"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-7.3.8.tgz#c8761d0f6959682e03032f8d3de718d1f811410e"
@@ -1082,6 +1089,11 @@ bonjour@^3.5.0:
     dns-txt "^2.0.2"
     multicast-dns "^6.0.1"
     multicast-dns-service-types "^1.1.0"
+
+bootstrap@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
+  integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -4422,6 +4434,11 @@ neo-async@^2.5.0, neo-async@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
+
+ng-easyui@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/ng-easyui/-/ng-easyui-1.2.6.tgz#3f337d08b997f3f00db84942081ce98b99ea9abb"
+  integrity sha512-Yk6D0q7bSYcHHRBqECxBbKBm6f4tdnl14OjzM5XXk8/sgGGsR1RAhFu++MCEl0nVQhHnSoxpPp+0se4vB03QBg==
 
 nice-try@^1.0.4:
   version "1.0.5"
