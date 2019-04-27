@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
 
+/**
+ * app组件
+ */
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'c-root',
+  template:`
+     <router-outlet></router-outlet>
+     <c-toast-box toastAnimation="fancy"></c-toast-box>
+     <c-spin></c-spin>
+  `
 })
 export class AppComponent {
-  title = 'aa';
+      
+
 }
+

@@ -1,4 +1,5 @@
 # aa
+
 front:angular,bootstrap,easyu,
 
 ## step
@@ -8,7 +9,7 @@ front:angular,bootstrap,easyu,
 - from `https://github.com/332557712/cc`
 - alter `https://github.com/chainly/cc`
 - failed for `easyui` and out of date
-- nwo(2019-04-27 12:49:01) `https://github.com/chainly/cc`
+- now(2019-04-27 12:49:01) `https://github.com/chainly/aa`
 
 ### 2. env version
 
@@ -65,6 +66,7 @@ typescript                   3.2.4
     path: add D:\ProgramData\Anaconda3;D:\ProgramData\Anaconda3\Scripts;
     ## linux
     https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+
     # env
     ## linux
     conda create --name python36 python=3.6
@@ -74,7 +76,10 @@ typescript                   3.2.4
     terminal.integrated.shell.windows = "D:\Program Files\Git\bin\bash.exe"
 
     # VS code
-    @TODO for extensions
+    ## mark
+    replace regex: (.*) ==> $1
+    ## extensions
+    @TODO: for vs code file
 
 #### nodejs
 
@@ -112,8 +117,10 @@ typescript                   3.2.4
     yarn add @ng-bootstrap/ng-bootstrap
     ### http://www.jeasyui.net/angular
     yarn add ng-easyui
-
     ## icon
+    ### https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use
+    yarn add font-awesome
+    ### and https://www.iconfont.cn/
 
     ## start dev
     ## goto http://127.0.0.1:4200/
@@ -133,4 +140,81 @@ typescript                   3.2.4
     # pull and *compare and fix conflicts* to merge
     git pull --allow-unrelated-histories
     # push
-    
+    git commit -m "merge remote git@github.com:chainly/aa.git"
+    git push
+
+### all of first
+
+    # copy
+    ## error-page
+    ## login
+    ## main
+    ## business-shared
+    ## business-services
+    ## environments
+    ## assets
+    ## index.html
+    ## app-*
+
+    # install module
+    yarn add rxjs-compat
+    yarn add @angular/http
+    ## replace `yarn add ng2-img-cropper` with
+    ## https://github.com/web-dave/ngx-img-cropper
+    yarn add ngx-img-cropper
+    yarn add qrious
+    ## "@angular/core/core"' has no exported member xx
+    ## `@angular/core.xx` move to `@angular/animations.xx`
+    ## checkwith https://angular.io/api
+    yarn add @angular/animations
+    ## https://stackoverflow.com/questions/54491147/error-while-starting-my-project-after-running-ng-serve
+    ## curret downgrade, change to `"rxjs-compat": "6.3.3"`
+    yarn install rxjs-compat
+    ## Non-abstract class 'DatepickerI18n' does not implement inherited abstract member 'getDayAriaLabel' from class 'NgbDatepickerI18n'.
+    ## https://github.com/ng-bootstrap/ng-bootstrap/issues/2362#issuecomment-386778183
+
+### entry
+
+    cd src/app
+    @TODO fix this!!!
+    # add @app directive to absolution import
+    ## ref: https://stackoverflow.com/q/34614818/6493535
+    ## add `"paths": { "@app/*": ["src/app/*"] }` to `tsconfig.json` and use like `import { PageNotFoundComponent } from '@app/error-page/page-not-found.component';`
+    # cp app-routing.module.ts
+    # comment out app --> MainModule
+    # cp app.component.ts
+
+### login
+
+    ng new
+    # for cors with cookies
+    # @TODO: use token
+    - [ ] add `withCredentials: true` to all `HttpService`.method
+    # more ref: https://github.com/chainly/cc
+    # @TODO: merge to here
+
+### logout
+
+    # more ref: https://github.com/chainly/cc
+    # @TODO: merge to here
+    # @TODO: reprsent as `LOGOUT<span><icro>
+
+### TODO
+
+- [ ] main function
+  - [ ] add `withCredentials: true` to all `HttpService`.method
+  - [X] user login/logout with cors cookie set
+  - [X] user info
+  - [X] user list
+    - [X] get by HttpPaginationComponent
+    - [ ] read detail of it
+    - [ ] replace with easyui table
+  - [X] user add
+  - [ ] easyui
+  - [ ] as a service and component
+  - [ ]
+  - [ ]
+- [X] serve as nginx static
+- [X] https
+- [ ] replace cookie with use token or as part of data or something else
+  - [ ] <https://medium.com/@ryanchenkie_40935/angular-authentication-using-route-guards-bf7a4ca13ae3>
