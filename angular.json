@@ -133,5 +133,10 @@
       }
     }
   },
-  "defaultProject": "aa"
+  "defaultProject": "aa",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

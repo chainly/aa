@@ -87,7 +87,7 @@ typescript                   3.2.4
     conda install nodejs
     # yarn
     npm i -g yarn
-    # [options]win
+    # [options and suggest for some potenial error] windows
     yarn add global --production windows-build-tools
 
 #### angular.ng
@@ -95,10 +95,17 @@ typescript                   3.2.4
     yarn add global @angular/cli
     # windows
     cd /g/gitworkspace/
-    git clone git@github.com:chainly/aa.git
-    cd aa
 
 ## angular.project
+
+### install and run aa
+
+    git clone git@github.com:chainly/aa.git
+    cd aa
+    yarn install
+    ng build
+    # nginx
+    @TODO: mv https://github.com/chainly/cc to here
 
 ### crete project
 
@@ -176,10 +183,11 @@ typescript                   3.2.4
 ### entry
 
     cd src/app
-    @TODO fix this!!!
+    @XTODO fix this!!! ==> `"baseUrl" maybe should set "./src"` and `paths relate to it` wiil get it to work, it origin to be `"./"` , but my is not work, I don't know why!
     # add @app directive to absolution import
     ## ref: https://stackoverflow.com/q/34614818/6493535
-    ## add `"paths": { "@app/*": ["src/app/*"] }` to `tsconfig.json` and use like `import { PageNotFoundComponent } from '@app/error-page/page-not-found.component';`
+    ## more: http://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
+    ## add `"paths": { "@app/*": ["app/*"] }` to `tsconfig.json` and use like `import { PageNotFoundComponent } from '@app/error-page/page-not-found.component';`
     # cp app-routing.module.ts
     # comment out app --> MainModule
     # cp app.component.ts
@@ -198,6 +206,91 @@ typescript                   3.2.4
     # more ref: https://github.com/chainly/cc
     # @TODO: merge to here
     # @TODO: reprsent as `LOGOUT<span><icro>
+
+### menu
+
+> spilt main.component.html into top-menu and side-menu
+
+    # menu
+    #ng generate component menu
+
+    ## about **`MODULE`**: to connect module and component
+    ### for import routing and declare component
+    ng generate module menu
+    ### for routing test
+    ng generate module menu-routing
+
+    ## about **`ROUTING`**: config to and follow RouterModule
+    ### 0. complile
+    ### 1. start from `AppModule.bootstrap: component
+    ### 2. load `import Module and component` from `Module` (in circle)
+    ### 3. find tag and replace with component
+    ### 3.1 if <router-outlet></router-outlet> get RouterModule
+    @NgModule({
+    // https://angular.io/api/router/RouterModule
+    // .forRoot just like set root, only one
+    // .forChild: down side
+    // .forChild: (in circle)
+    imports: [
+        RouterModule.forChild(
+            [
+                // https://angular.io/api/router/Route#properties
+                { path: 'pathxxx', component: componentxxx},
+                { path: 'pathyyy', loadChildren: 'Module path' },  // like "app/business/demo/demo.module#DemoModule"
+
+            ] : Routes  // Routes object
+        )
+    ],
+    // up side
+    exports: [
+        RouterModule
+    ]
+    })
+
+    cd menu
+    # @TODO: find args to auto add component to local module
+    # top-menu
+    ng generate component top-menu
+    # side-menu
+    ng generate component side-menu
+
+    # for **`CSS/SCSS`**:
+    ## for define css
+    # scss info: https://sass-lang.com/documentation/syntax
+    ## for `Error: Failed to find xx.scss`
+    ### https://www.cnblogs.com/wangzhichao/p/7904320.html
+    ### https://github.com/angular/angular-cli/issues/12746#issuecomment-433337619
+    ### **maybe contained or not required! for angular7**
+    yarn add node-sass
+    yarn add sass-loader
+    # use scss: https://stackoverflow.com/a/39816365/6493535
+    ng config schematics.@schematics/angular:component.styleext scss
+
+### dependencies warning
+
+```text
+[2/4] Fetching packages...
+warning Pattern ["sass-loader@^7.1.0"] is trying to unpack in the same destination "C:\\Users\\COOl\\AppData\\Local\\Yarn\\Cache\\v4\\npm-sass-loader-7.1.0-16fd5138cb8b424bf8a759528a1972d72aad069d\\node_modules\\sass-loader" as pattern ["sass-loader@7.1.0"]. This could result in non-deterministic behavior, skipping.
+info fsevents@1.2.8: The platform "win32" is incompatible with this module.
+info "fsevents@1.2.8" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning " > bootstrap@4.3.1" has unmet peer dependency "jquery@1.9.1 - 3".
+warning " > bootstrap@4.3.1" has unmet peer dependency "popper.js@^1.14.7".
+warning " > ng2-img-cropper@0.9.0" has incorrect peer dependency "@angular/common@^4.0.0".
+warning " > ng2-img-cropper@0.9.0" has incorrect peer dependency "@angular/compiler@^4.0.0".
+warning " > ng2-img-cropper@0.9.0" has incorrect peer dependency "@angular/core@^4.0.0".
+warning " > sass-loader@7.1.0" has unmet peer dependency "webpack@^3.0.0 || ^4.0.0".
+```
+
+### Q&A
+
+```text
+1. Can't bind to 'NgClass' since it isn't a known property of 'button'.
+    ref: https://angular.io/api/common/NgClass#description
+    to use it you have to import CommonModule in module
+
+2. pass
+```
 
 ### TODO
 

@@ -1,7 +1,7 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PageNotFoundComponent } from './error-page/page-not-found.component'
+import { PageNotFoundComponent } from '@app/error-page/page-not-found.component'
 
 import {SelectivePreloadingStrategy} from "./selective-preloading-strategy";
 
@@ -13,12 +13,12 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { 
      path: 'login',  
-     loadChildren: 'src/app/login/login.module#LoginModule'
+     loadChildren: 'app/login/login.module#LoginModule'
   },
-  // { 
-  //    path: 'app',  
-  //    loadChildren: 'src/app/main/main.module#MainModule'
-  // },
+  { 
+     path: 'app',  
+     loadChildren: 'app/menu/menu.module#MenuModule'
+  },
   {
      path:'**',
       component: PageNotFoundComponent
