@@ -27,7 +27,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-   RouterModule.forRoot(appRoutes,{preloadingStrategy: SelectivePreloadingStrategy, useHash:true})
+   RouterModule.forRoot(appRoutes,{preloadingStrategy: SelectivePreloadingStrategy, })
   ],
   exports: [
     RouterModule

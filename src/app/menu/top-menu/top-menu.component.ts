@@ -32,34 +32,35 @@ export class TopMenuComponent implements OnInit {
 
   constructor( 
     private router: Router,
-    private modalService: ModalService, 
-    private ngbModalService: NgbModal, 
-    private appService: AppService,
-    private httpService: HttpService,
-    private userBusinessService: UserBusinessService,
-    private toastService: ToastService) 
+    // private modalService: ModalService, 
+    // private ngbModalService: NgbModal, 
+    // private appService: AppService,
+    // private httpService: HttpService,
+    // private userBusinessService: UserBusinessService,
+    // private toastService: ToastService
+    ) 
   {
-    this.appService.titleEventEmitter.subscribe((value: string) => {
-      if (value) {
-        this.title = value;
-    }
-  })
+    // this.appService.titleEventEmitter.subscribe((value: string) => {
+    //   if (value) {
+    //     this.title = value;
+    //   }
+    // })
   }
 
   ngOnInit() {
   }
 
-  /**
-    * 切换导航
-  */
-  toggleNav() {
-    this.navClose = !this.navClose;
-    if (this.navClose) {
-      this.toggleDescTip = "点击展开导航菜单";
-    } else {
-      this.toggleDescTip = "点击关闭导航菜单";
-    }
-  }
+//   /**
+//     * 切换导航
+//   */
+//   toggleNav() {
+//     this.navClose = !this.navClose;
+//     if (this.navClose) {
+//       this.toggleDescTip = "点击展开导航菜单";
+//     } else {
+//       this.toggleDescTip = "点击关闭导航菜单";
+//     }
+//   }
 
   /**
    * 个人资料
@@ -68,62 +69,63 @@ export class TopMenuComponent implements OnInit {
     this.router.navigate(['/app/user/userInfo']);
   }
 
-  /**
-   * 头像更换
-   */
-  avatarReplacement() {
-    this.ngbModalService.open(AvatarCropperComponent, { size: 'lg', backdrop: 'static', keyboard: false }).result.then((result) => {
+//   /**
+//    * 头像更换
+//    */
+//   avatarReplacement() {
+//     this.ngbModalService.open(AvatarCropperComponent, { size: 'lg', backdrop: 'static', keyboard: false }).result.then((result) => {
 
-    }, (reason) => {
+//     }, (reason) => {
 
-    });
-  }
+//     });
+//   }
 
-  /**
-   * 修改密码
-   */
-  passwordEdit() {
-    this.ngbModalService.open(PasswordEditComponent, { size: 'lg' }).result.then((result) => {
+//   /**
+//    * 修改密码
+//    */
+//   passwordEdit() {
+//     this.ngbModalService.open(PasswordEditComponent, { size: 'lg' }).result.then((result) => {
 
-    }, (reason) => {
+//     }, (reason) => {
 
-    });
-  }
-  /**
-   * 跳转首页
-   */
-  toHome() {
-    this.title = "首页";
-    this.router.navigate(['/app/home']);
-  }
+//     });
+//   }
+//   /**
+//    * 跳转首页
+//    */
+//   toHome() {
+//     this.title = "首页";
+//     this.router.navigate(['/app/home']);
+//   }
 
-    /**
-   * 退出系统
-   */
-  exitSys() {
-    let exitSysCfg = new ConfirmConfig('您确定退出系统吗？');
-    this.modalService.confirm(exitSysCfg).then((result) => {
-      if (result.status == "approved") {
-        let that = this;
-        this.httpService.post(this.userBusinessService.logout(), {}, function (successful, data, res) {
-          if (successful && Utils.resultSuccess(data.resultType)) {
-            const toastCfg = new ToastConfig(ToastType.SUCCESS, '', data.resultMsg, 3000);
-            that.toastService.toast(toastCfg);
-            that.router.navigate(['/login']);
-          }else if(successful && Utils.resultFailure(data.resultType)){
-            const toastCfg = new ToastConfig(ToastType.WARNING, '', data.resultMsg, 3000);
-            that.toastService.toast(toastCfg);
-          }else{
-            const toastCfg = new ToastConfig(ToastType.ERROR, '', data.resultMsg, 3000);
-            that.toastService.toast(toastCfg);
-          }
-        }, function (successful, msg, err) {
-           const toastCfg = new ToastConfig(ToastType.ERROR, '', msg, 3000);
-           that.toastService.toast(toastCfg);
-        });
-        this.router.navigate(['/login']);
-      }
-    }, (reason) => {
-    });
-  }
+//     /**
+//    * 退出系统
+//    */
+//   exitSys() {
+//     let exitSysCfg = new ConfirmConfig('您确定退出系统吗？');
+//     this.modalService.confirm(exitSysCfg).then((result) => {
+//       if (result.status == "approved") {
+//         let that = this;
+//         this.httpService.post(this.userBusinessService.logout(), {}, function (successful, data, res) {
+//           if (successful && Utils.resultSuccess(data.resultType)) {
+//             const toastCfg = new ToastConfig(ToastType.SUCCESS, '', data.resultMsg, 3000);
+//             that.toastService.toast(toastCfg);
+//             that.router.navigate(['/login']);
+//           }else if(successful && Utils.resultFailure(data.resultType)){
+//             const toastCfg = new ToastConfig(ToastType.WARNING, '', data.resultMsg, 3000);
+//             that.toastService.toast(toastCfg);
+//           }else{
+//             const toastCfg = new ToastConfig(ToastType.ERROR, '', data.resultMsg, 3000);
+//             that.toastService.toast(toastCfg);
+//           }
+//         }, function (successful, msg, err) {
+//            const toastCfg = new ToastConfig(ToastType.ERROR, '', msg, 3000);
+//            that.toastService.toast(toastCfg);
+//         });
+//         this.router.navigate(['/login']);
+//       }
+//     }, (reason) => {
+//     });
+//   }
+
 }

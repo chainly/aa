@@ -225,20 +225,24 @@ typescript                   3.2.4
     ### 1. start from `AppModule.bootstrap: component
     ### 2. load `import Module and component` from `Module` (in circle)
     ### 3. find tag and replace with component
-    ### 3.1 if <router-outlet></router-outlet> get RouterModule
+    ### 4. <router-outlet></router-outlet> use route for Route.children(must contain in thisComponentForPathxx'html else not palce for subrouting to show)
     @NgModule({
     // https://angular.io/api/router/RouterModule
     // .forRoot just like set root, only one
     // .forChild: down side
     // .forChild: (in circle)
     imports: [
-        RouterModule.forChild(
-            [
-                // https://angular.io/api/router/Route#properties
-                { path: 'pathxxx', component: componentxxx},
-                { path: 'pathyyy', loadChildren: 'Module path' },  // like "app/business/demo/demo.module#DemoModule"
-
-            ] : Routes  // Routes object
+        RouterModule.forChild([
+            // https://angular.io/api/router/Route#properties
+            {
+                "path", 'pathx',
+                "component" thisComponentForPathxx,
+                "children": [  // subrouting
+                    { path: 'pathxxx', component: componentxxx},  // ./pathx/pathxxx
+                    { path: 'pathyyy', loadChildren: 'Module path' },  // other contain RouterModule Module's path
+                ] : Routes  // Routes object
+            },
+            { path: 'pathxxx', component: componentxxx}, // ./pathxxx
         )
     ],
     // up side
@@ -289,8 +293,30 @@ warning " > sass-loader@7.1.0" has unmet peer dependency "webpack@^3.0.0 || ^4.0
     ref: https://angular.io/api/common/NgClass#description
     to use it you have to import CommonModule in module
 
-2. pass
+2. not import MenuRoutingModule in MenuModule cause 
+- aa\others\errors\127.0.0.1-1556546400732.log
+- no subrouting
+
+3. <router-outlet></router-outlet> use route for Route.children(must contain in thisComponentForPathxx'html else not place for subrouting to show)
+
+4. pass
 ```
+
+### angular doc
+
+  [./docs/README.md](./docs/README.md)
+
+### map
+
+    main.ts bootstrapModule(AppModule)
+    app.module.ts bootstrap: [ AppComponent ] and AppRoutingModule
+        app.component.ts.template
+            <router-outlet></router-outlet> ==> loadChildren/children
+            <selector1></selector1> ==> Component
+            ...
+        app-routing Routes
+            path ==> Component :goto Component
+            path ==> loadChildren/children show in <router-outlet></router-outlet> :goto xx.module.ts
 
 ### TODO
 
