@@ -74,7 +74,8 @@ typescript                   3.2.4
     ## windows
     Environment -> creat -> python36 and choos python3.6
     settings ==>
-    terminal.integrated.shellArgs.windows
+    workbench.tree.indent: 30
+    terminal.integrated.shellArgs.windows:
     {
     "python.pythonPath": "D:\\ProgramData\\Anaconda3",
     "terminal.integrated.shell.windows": "D:\\Program Files\\Git\\bin\\bash.exe",
@@ -141,6 +142,10 @@ typescript                   3.2.4
     ng serve
 
     ## push
+    # git config
+    git config --global user.email "1258626769@qq.com"
+    git config --global user.name "chainly"
+    # remote
     git remote -v
     git remote add  origin git@github.com:chainly/aa.git
     # There is no tracking information for the current branch.
