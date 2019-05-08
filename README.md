@@ -73,7 +73,13 @@ typescript                   3.2.4
     echo "conda activate python36" >> ~/.bash_profile
     ## windows
     Environment -> creat -> python36 and choos python3.6
-    terminal.integrated.shell.windows = "D:\Program Files\Git\bin\bash.exe"
+    settings ==>
+    terminal.integrated.shellArgs.windows
+    {
+    "python.pythonPath": "D:\\ProgramData\\Anaconda3",
+    "terminal.integrated.shell.windows": "D:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.shellArgs.windows": ["--login", "-i"]
+    }
 
     # VS code
     ## mark
@@ -88,13 +94,14 @@ typescript                   3.2.4
     # yarn
     npm i -g yarn
     # [options and suggest for some potenial error] windows
+    # **run as admin**
     yarn add global --production windows-build-tools
 
 #### angular.ng
 
-    yarn add global @angular/cli
+    yarn add @angular/cli
     # windows
-    cd /g/gitworkspace/
+    add path E:\workspace\vs\t1\aa\node_modules\.bin
 
 ## angular.project
 
@@ -293,7 +300,7 @@ warning " > sass-loader@7.1.0" has unmet peer dependency "webpack@^3.0.0 || ^4.0
     ref: https://angular.io/api/common/NgClass#description
     to use it you have to import CommonModule in module
 
-2. not import MenuRoutingModule in MenuModule cause 
+2. not import MenuRoutingModule in MenuModule cause
 - aa\others\errors\127.0.0.1-1556546400732.log
 - no subrouting
 
