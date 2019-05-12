@@ -4518,10 +4518,12 @@ ng-easyui@^1.2.6:
   resolved "https://registry.yarnpkg.com/ng-easyui/-/ng-easyui-1.2.6.tgz#3f337d08b997f3f00db84942081ce98b99ea9abb"
   integrity sha512-Yk6D0q7bSYcHHRBqECxBbKBm6f4tdnl14OjzM5XXk8/sgGGsR1RAhFu++MCEl0nVQhHnSoxpPp+0se4vB03QBg==
 
-ng2-img-cropper@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/ng2-img-cropper/-/ng2-img-cropper-0.9.0.tgz#305337e669c4e5adc876d628dcae0bca4d10d1c3"
-  integrity sha1-MFM35mnE5a3IdtYo3K4Lyk0Q0cM=
+ngx-img-cropper@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/ngx-img-cropper/-/ngx-img-cropper-7.0.5.tgz#61d51f5b82032e19c3c2f044ac2bea7a86e98e2a"
+  integrity sha512-EhtmIhpBt5lxP/rAtJcToQKiEKWKU9wSv2r+4foR+iXYEct9cO7LzyAIJUSX5NwaDPDzF2vAgGKhACBXdbORCQ==
+  dependencies:
+    tslib "^1.9.0"
 
 nice-try@^1.0.4:
   version "1.0.5"

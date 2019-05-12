@@ -1,6 +1,6 @@
 # aa
 
-front:angular,bootstrap,easyu,
+front:angular,bootstrap,easyui,
 
 ## step
 
@@ -55,6 +55,12 @@ typescript                   3.2.4
 #### base
 
     # git
+    ## install
+    https://git-scm.com/
+    https://tortoisegit.org/
+    ## git config
+    git config --global user.email "1258626769@qq.com"
+    git config --global user.name "chainly"
     #
 
 #### anconda
@@ -67,55 +73,72 @@ typescript                   3.2.4
     ## linux
     https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
 
-    # env
+    # [options]env
     ## linux
     conda create --name python36 python=3.6
     echo "conda activate python36" >> ~/.bash_profile
+
     ## windows
     Environment -> creat -> python36 and choos python3.6
-    settings ==>
-    workbench.tree.indent: 30
-    terminal.integrated.shellArgs.windows:
+    ### git bash
+    conda init bash
+    echo "conda activate python36" >> ~/.bash_profile
+
+    ### VS code
+    #### extensions
+    install: vscode-icons
+    @TODO: for vs extensions config file
+
+    #### settings and *reopen Anaconda3 and vs*
     {
-    "python.pythonPath": "D:\\ProgramData\\Anaconda3",
-    "terminal.integrated.shell.windows": "D:\\Program Files\\Git\\bin\\bash.exe",
-    "terminal.integrated.shellArgs.windows": ["--login", "-i"]
+        "python.pythonPath": "D:\\ProgramData\\Anaconda3",
+        "terminal.integrated.shell.windows": "D:\\Program Files\\Git\\bin\\bash.exe",
+        "terminal.integrated.shellArgs.windows": [
+            "--login",
+            "-i"
+        ],
+        "workbench.iconTheme": "vscode-icons",
+        "workbench.tree.indent": 20,
+        "vsicons.projectDetection.autoReload": true
     }
 
-    # VS code
-    ## mark
-    replace regex: (.*) ==> $1
-    ## extensions
-    @TODO: for vs code file
+    #### mark
+    replace regex: (.*) ==> $1 not \1
 
-#### nodejs
+## angular.project
+
+### workdir
+
+> if no aa, goto `crete project`
+
+    git clone git@github.com:chainly/aa.git
+    cd aa
+
+### nodejs
 
     # install
     conda install nodejs
     # yarn
     npm i -g yarn
-    # [options and suggest for some potenial error] windows
+
+    # https://github.com/felixrieseberg/windows-build-tools
     # **run as admin**
     yarn add global --production windows-build-tools
 
-#### angular.ng
+### angular.ng
 
     yarn add @angular/cli
-    # windows
-    add path E:\workspace\vs\t1\aa\node_modules\.bin
+    # [if not ng]windows
+    add path E:\gitspace\aa\node_modules\.bin
 
-## angular.project
-
-### install and run aa
-
-    git clone git@github.com:chainly/aa.git
-    cd aa
     yarn install
     ng build
     # nginx
     @TODO: mv https://github.com/chainly/cc to here
 
 ### crete project
+
+> if aa, pass
 
     # package manage
     # package-lock.json found ==> rm it and use `yarn` instand of `npm`
@@ -142,9 +165,6 @@ typescript                   3.2.4
     ng serve
 
     ## push
-    # git config
-    git config --global user.email "1258626769@qq.com"
-    git config --global user.name "chainly"
     # remote
     git remote -v
     git remote add  origin git@github.com:chainly/aa.git
@@ -290,9 +310,13 @@ warning Pattern ["sass-loader@^7.1.0"] is trying to unpack in the same destinati
 info fsevents@1.2.8: The platform "win32" is incompatible with this module.
 info "fsevents@1.2.8" is an optional dependency and failed compatibility check. Excluding it from installation.
 [3/4] Linking dependencies...
+# https://stackoverflow.com/a/51838216/6493535
 warning " > bootstrap@4.3.1" has unmet peer dependency "jquery@1.9.1 - 3".
 warning " > bootstrap@4.3.1" has unmet peer dependency "popper.js@^1.14.7".
-warning " > ng2-img-cropper@0.9.0" has incorrect peer dependency "@angular/common@^4.0.0".
+# https://github.com/web-dave/ngx-img-cropper
+# yarn remove ng2-img-cropper
+# yarn add ngx-img-cropper
+warning " > ng2-img-cropper@0.9.0" has incorrect peer dependency "@angular/common@^4.0.0".  
 warning " > ng2-img-cropper@0.9.0" has incorrect peer dependency "@angular/compiler@^4.0.0".
 warning " > ng2-img-cropper@0.9.0" has incorrect peer dependency "@angular/core@^4.0.0".
 warning " > sass-loader@7.1.0" has unmet peer dependency "webpack@^3.0.0 || ^4.0.0".

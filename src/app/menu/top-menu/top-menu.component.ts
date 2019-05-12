@@ -29,6 +29,16 @@ export class TopMenuComponent implements OnInit {
   //切换导航标识
   navClose: boolean = false;
 
+  mainData = {
+    userData: {
+      userName: "百变小咖",
+      userAvatar: "./assets/img/user-header.png",
+      mobilePhone: "1895090***2",
+      email: "332557712@qq.com",
+      positions: "Java工程师、打杂工程师",
+    },
+  };
+
 
   constructor( 
     private router: Router,

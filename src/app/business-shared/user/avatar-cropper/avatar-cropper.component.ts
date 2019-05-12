@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation, ViewChild } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ImageCropperComponent, CropperSettings, Bounds } from 'ng2-img-cropper';
+import { ImageCropperComponent, CropperSettings, CropPosition } from 'ngx-img-cropper';
 
 import { ToastService } from '../../../shared/toast/toast.service';
 import { ToastConfig, ToastType } from '../../../shared/toast/toast-model';

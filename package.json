@@ -27,7 +27,7 @@
     "font-awesome": "^4.7.0",
     "global": "^4.3.2",
     "ng-easyui": "^1.2.6",
-    "ng2-img-cropper": "^0.9.0",
+    "ngx-img-cropper": "^7.0.5",
     "node-sass": "4.10.0",
     "qrious": "^4.0.2",
     "rxjs": "~6.3.3",
